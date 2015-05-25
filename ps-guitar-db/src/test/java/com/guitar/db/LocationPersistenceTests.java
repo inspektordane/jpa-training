@@ -105,4 +105,24 @@ public class LocationPersistenceTests {
 		
 		
 	}
+	
+	@Test
+	public void testNotLike()
+	{
+		List<Location> locs = locationJpaRepository.findByStateNotLike("New%");
+		//when LIKE is used must use "%" sign
+		assertEquals(46, locs.size());
+		
+		
+	}
+	
+	@Test
+	public void testStartWith()
+	{
+		List<Location> locs = locationJpaRepository.findByStateStartingWith("New");
+		//when LIKE is used must use "%" sign
+		assertEquals(4, locs.size());
+		
+		
+	}
 }
