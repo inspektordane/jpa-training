@@ -10,6 +10,6 @@ import com.guitar.db.model.Model;
 
 @Repository
 public interface ModelJpaRepository extends JpaRepository<Model, Long> {
-		List<Model> findByPriceGreaterThanAndPriceLessThan(BigDecimal value1, BigDecimal value2);
+	List <Model> findByPriceGreaterThanEqualAndPriceLessThanEqual(BigDecimal val1, BigDecimal val2);
 
 }
