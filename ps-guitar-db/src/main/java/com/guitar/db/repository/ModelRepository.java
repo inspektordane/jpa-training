@@ -26,11 +26,7 @@ public class ModelRepository {
 	 * Create
 	 */
 	public Model create(Model mod) {
-	//	entityManager.persist(mod);
-	//	entityManager.flush();
-	//	return mod;
-		
-		return modelJpaRepository.saveAndFlush(mod);
+			return modelJpaRepository.saveAndFlush(mod);
 		
 		
 	}
@@ -39,10 +35,7 @@ public class ModelRepository {
 	 * Update
 	 */
 	public Model update(Model mod) {
-		/*mod = entityManager.merge(mod);
-		entityManager.flush();
-		return mod; */
-		
+			
 		return modelJpaRepository.saveAndFlush(mod);
 	}
 
@@ -50,8 +43,7 @@ public class ModelRepository {
 	 * Delete
 	 */
 	public void delete(Model mod) {
-		//entityManager.remove(mod);
-		//entityManager.flush();
+		
 		
 		modelJpaRepository.delete(mod);
 	}
@@ -60,8 +52,7 @@ public class ModelRepository {
 	 * Find
 	 */
 	public Model find(Long id) {
-		//return entityManager.find(Model.class, id);
-		
+				
 		return modelJpaRepository.findOne(id);
 	}
 
