@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.guitar.db.model.Model;
+import com.guitar.db.model.ModelType;
 
 @Repository
 public interface ModelJpaRepository extends JpaRepository<Model, Long> {
 	List <Model> findByPriceGreaterThanEqualAndPriceLessThanEqual(BigDecimal val1, BigDecimal val2);
-
+    List <Model> findByModelTypeNameIn(List<String> types);
 }
