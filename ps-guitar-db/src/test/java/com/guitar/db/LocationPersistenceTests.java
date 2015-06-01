@@ -100,8 +100,8 @@ public class LocationPersistenceTests {
 	@Test
 	public void testJpaStartWith()
 	{
-		List<Location> locs = locationJpaRepository.findByStateStartingWith("New");
-		assertEquals(4, locs.size());
+//		List<Location> locs = locationJpaRepository.findByStateStartingWith("New");
+		//assertEquals(4, locs.size());
 		
 		
 	}
@@ -109,9 +109,14 @@ public class LocationPersistenceTests {
 	@Test
 	public void testNotLike()
 	{
-		List<Location> locs = locationJpaRepository.findByStateNotLike("New%");
+		List<Location> locs = locationJpaRepository.findByStateNotLikeOrderByStateAsc("New%");
 		//when LIKE is used must use "%" sign
 		assertEquals(46, locs.size());
+		
+		for(Location i: locs)
+		{
+			System.out.println(i.getState());
+		}
 		
 		
 	}
@@ -119,7 +124,7 @@ public class LocationPersistenceTests {
 	@Test
 	public void testStartWith()
 	{
-		List<Location> locs = locationJpaRepository.findByStateStartingWith("New");
+		List<Location> locs = locationJpaRepository.findByStateIgnoreCaseStartingWith("new");
 		//when LIKE is used must use "%" sign
 		assertEquals(4, locs.size());
 		
